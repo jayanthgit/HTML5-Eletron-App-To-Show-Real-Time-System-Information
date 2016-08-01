@@ -1,0 +1,15 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": ""
+  },
+  "devDependencies": {
+    "nan": "*",
+    "streaming-worker-sdk": "*",
+    "streaming-worker": "*",
+    "through": "^2.3.8"
+  }
+}
