@@ -1,19 +1,55 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>        
+    <title>Device Data</title>      
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="app.css" rel="stylesheet" />
+
+    
+    <script src="scripts/jquery-2.0.3.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/angular.js"></script>  
   </head>
   <body>
-    <h1>System Monitor App</h1>
-    <system-monitor></system-monitor>
+    <div class="container-fluid" ng-app="app">
+      <div class="row" ng-controller="TabController">
+        <div class="col-lg-2">
+          <ul class="nav nav-pills nav-stacked">
+            <li ng-class="{ active: isSet(1) }">
+                <a href ng-click="setTab(1)">Monitor 1</a>
+            </li>
+            <li ng-class="{ active: isSet(2) }">
+                <a href ng-click="setTab(2)">Monitor 2</a>
+            </li>
+            <li ng-class="{ active: isSet(3) }">
+                <a href ng-click="setTab(3)">Monitor 3</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-10">
+          <div class="jumbotron">
+            <div ng-show="isSet(1)">
+                <h1>System Monitor 1</h1>
+                <system-monitor></system-monitor>
+            </div>
+            <div ng-show="isSet(2)">
+                <h1>System Monitor 2</h1>
+                <system-monitor></system-monitor>
+            </div>
+            <div ng-show="isSet(3)">
+                <h1>System Monitor 3</h1>
+                <system-monitor></system-monitor>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-
-  <script src="scripts/jquery-2.0.3.js"></script>
-  <script src="scripts/angular.js"></script>
   
   <script src="app/appModule.js"></script>
   <script src="app/services/deviceDataService.js"></script>
+
+  <script src="app/tabController.js"></script>
   <script src="app/systemMonitorControl/systemMonitorController.js"></script>
   <script src="app/systemMonitorControl/systemMonitorDirective.js"></script>
 </html>

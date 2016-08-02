@@ -1,4 +1,6 @@
-const electron = require('electron')
+const electron = require('electron');
+const ipc = require('ipc')
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -6,17 +8,16 @@ const BrowserWindow = electron.BrowserWindow
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1600, height: 900, frame: false})
+  mainWindow = new BrowserWindow({width: 1600, height: 900, frame: false});
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.maximize();
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -49,5 +50,8 @@ app.on('activate', function () {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+//ipc.on('show-secondary-view', function () {
+    //secondaryWindow.show();
+    //mainWindow.hide();
+//})
+

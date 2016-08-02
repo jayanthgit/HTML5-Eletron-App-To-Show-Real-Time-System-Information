@@ -5,6 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron ."
+  },
+  "dependencies": {
+    "ipc": "*"
   },  
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
